@@ -4,28 +4,39 @@ import java.util.List;
 
 import javax.persistence.*;
 
-@Entity
+	@Entity
 public class Bug_type {
+	
 	@Id
 	@GeneratedValue //valoarea id-ului va fi incremetata automat
-private Bug bug_type_id;
+private Integer bug_type_id;
 
+	@OneToMany
+	@JoinColumn(name="bug_name", referencedColumnName="bug_name")
+	private List<Bug> bugname;
 	@Column(name="bug_name")
 private Bug bug_name;
 	
 private Boolean bug_active;
 
-//Mapare variabila "private Bug bug_name"
-@OneToMany
-@JoinColumn(name="bug_name", referencedColumnName="bug_name")
-private List<Bug> bugname;
 
-public Bug getBug_type_id() {
+
+
+//Getters, Setters and Contructors
+public Integer getBug_type_id() {
 	return bug_type_id;
 }
 
-public void setBug_type_id(Bug bug_type_id) {
+public void setBug_type_id(Integer bug_type_id) {
 	this.bug_type_id = bug_type_id;
+}
+
+public List<Bug> getBugname() {
+	return bugname;
+}
+
+public void setBugname(List<Bug> bugname) {
+	this.bugname = bugname;
 }
 
 public Bug getBug_name() {
@@ -44,25 +55,18 @@ public void setBug_active(Boolean bug_active) {
 	this.bug_active = bug_active;
 }
 
-public List<Bug> getBugname() {
-	return bugname;
-}
-
-public void setBugname(List<Bug> bugname) {
-	this.bugname = bugname;
-}
-
-public Bug_type(Bug bug_type_id, Bug bug_name, Boolean bug_active, List<Bug> bugname) {
+public Bug_type(Integer bug_type_id, List<Bug> bugname, Bug bug_name, Boolean bug_active) {
 	super();
 	this.bug_type_id = bug_type_id;
+	this.bugname = bugname;
 	this.bug_name = bug_name;
 	this.bug_active = bug_active;
-	this.bugname = bugname;
 }
 
 public Bug_type() {
 	super();
 }
+
 
 
 

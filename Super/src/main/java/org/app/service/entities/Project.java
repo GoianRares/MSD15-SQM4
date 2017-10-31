@@ -15,11 +15,13 @@ private String project_name;
 	
 private String project_description;
 	
-//Maparea legaturii dintre clasele Project si Bug
+//Maparea legaturii O-to-M dintre clasele Project si Bug
 	@OneToMany
 	@JoinColumn(name="project_id", referencedColumnName="project_id")
 	private List<Bug>bugproject;
 
+
+//Getters, Setters and Contructors
 	public Integer getProject_id() {
 		return project_id;
 	}

@@ -31,6 +31,8 @@ Set<Bug>project_bug=new HashSet<>();
 
 
 
+
+//Getters, Setters and Contructors
 public Integer getUser_id() {
 	return user_id;
 }
@@ -68,19 +70,20 @@ public Project_user() {
 	// TODO Auto-generated constructor stub
 }
 
-public Project_user(Integer employee_id, Set<Assign> employeeid, String employee_name, String employee_email) {
-	super(employee_id, employeeid, employee_name, employee_email);
+public Project_user(Integer employee_id, String employee_name, String employee_email, String employee_role) {
+	super(employee_id, employee_name, employee_email, employee_role);
 	// TODO Auto-generated constructor stub
 }
 
-public Project_user(Integer employee_id, Set<Assign> employeeid, String employee_name, String employee_email,
+public Project_user(Integer employee_id, String employee_name, String employee_email, String employee_role,
 		Integer user_id, Project project_id, List<Bug> buglist, Set<Bug> project_bug) {
-	super(employee_id, employeeid, employee_name, employee_email);
+	super(employee_id, employee_name, employee_email, employee_role);
 	this.user_id = user_id;
 	this.project_id = project_id;
 	this.buglist = buglist;
 	this.project_bug = project_bug;
 }
+
 
 
 

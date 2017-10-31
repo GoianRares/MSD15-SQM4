@@ -15,6 +15,8 @@ private String status;
 	@Column(name="description")
 private String description;
 
+
+	//Getters, Setters and Contructors
 	public Integer getBug_status_id() {
 		return bug_status_id;
 	}
